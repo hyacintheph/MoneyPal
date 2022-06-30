@@ -6,13 +6,7 @@ import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.navigation.NavHostController
-import com.example.moneypal.UserAccountActivity
-import com.example.moneypal.models.Status
 import com.example.moneypal.models.User
-import com.example.moneypal.utils.ExtResources
-import com.example.moneypal.utils.NavRoutes
-import com.example.moneypal.utils.SingleRouteNavigation
 import com.example.moneypal.utils.randomStr
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
@@ -42,7 +36,6 @@ class UserAccountRepository @Inject constructor() {
     // code message state for mapping changing
     private var _codeVerification = MutableLiveData("")
     private var codeSend = MutableLiveData(false)
-    private var _status = MutableLiveData(listOf(Status()))
 
     // state of transactions
     // we use many boolean fields because LiveData is not observable with dataclass
@@ -255,8 +248,7 @@ class UserAccountRepository @Inject constructor() {
                             db.collection("users").add(user)
                                 .addOnCompleteListener {
                                     _isProfileUpdated.value = true
-                                    Log.d(TAG, "Successfully create account :$avatarImage: " +
-                                            "${_status.value!!.get(0).isProfileUpdated}")
+
                                 }
                                 .addOnFailureListener{e ->
                                     _isErrorUpdatedProfile.value = true
@@ -266,8 +258,7 @@ class UserAccountRepository @Inject constructor() {
                                 .document().set(user, SetOptions.merge())
                                 .addOnCompleteListener {
                                     _isProfileUpdated.value = true
-                                    Log.d(TAG, "Successfully update account :$avatarImage: " +
-                                            "${_status.value!!.get(0).isProfileUpdated}")
+
                                 }
                                 .addOnFailureListener{e ->
                                     _isErrorUpdatedProfile.value = true

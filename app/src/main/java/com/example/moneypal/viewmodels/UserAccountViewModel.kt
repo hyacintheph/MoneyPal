@@ -2,15 +2,10 @@ package com.example.moneypal.viewmodels
 
 import android.app.Activity
 import android.graphics.Bitmap
-import android.net.Uri
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
-import com.example.moneypal.UserAccountActivity
-import com.example.moneypal.models.Status
 import com.example.moneypal.repositories.UserAccountRepository
-import com.example.moneypal.utils.NavRoutes
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -1,6 +1,7 @@
 package com.example.moneypal.ui.account
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.widget.Toast
 import androidx.compose.foundation.*
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.moneypal.LoginActivity
 import com.example.moneypal.R
 import com.example.moneypal.UserAccountActivity
 import com.example.moneypal.ui.theme.MoneyPalTheme
@@ -45,6 +47,7 @@ fun UserRegistration(
         mutableStateOf(false)
     }
     val context = LocalContext.current.applicationContext
+    val activity = LocalContext.current.findActivity() as UserAccountActivity
     MoneyPalTheme {
         // default container
        Scaffold() {
@@ -115,7 +118,8 @@ fun UserRegistration(
                        Text(text = stringResource(R.string.have_account))
                        ClickableText(
                            text = AnnotatedString(stringResource(id = R.string.sign_in_here)),
-                           onClick = {navController.navigate(NavRoutes.Login.toString())},
+                           onClick = {activity.startActivity(Intent(activity,
+                               LoginActivity::class.java))},
                            modifier = modifier.padding(4.dp),
                            style = TextStyle(
                                fontWeight = FontWeight.Bold,

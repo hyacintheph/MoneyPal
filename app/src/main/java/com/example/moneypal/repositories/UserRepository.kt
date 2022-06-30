@@ -1,23 +1,15 @@
 package com.example.moneypal.repositories
 
-import android.net.Uri
 import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.moneypal.models.DataOrException
 import com.example.moneypal.models.User
 import com.example.moneypal.models.UserData
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.QueryDocumentSnapshot
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import okhttp3.internal.toImmutableList
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -51,7 +43,6 @@ class UserRepository @Inject constructor() {
     }
 
     suspend fun getUsers() {
-        val dataOrException = DataOrException<MutableList<UserData>, Exception>()
         val db = FirebaseFirestore.getInstance()
         db.collection("users")
             .get().addOnCompleteListener {  task ->
@@ -68,13 +59,13 @@ class UserRepository @Inject constructor() {
                             }
 
                         }.addOnFailureListener{
-                            //userUri = null
+                                Log.d("MainActivity", "Error to get data")
                         }
                     }
                 }
 
                 if(task.exception is FirebaseFirestoreException){
-
+                    Log.d("MainActivity", "Error to get data")
                 }
             }
 

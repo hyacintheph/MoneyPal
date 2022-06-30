@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.graphics.Bitmap
 import android.net.Uri
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,25 +28,16 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
-import coil.compose.rememberAsyncImagePainter
 import com.example.moneypal.R
-import com.example.moneypal.UserAccountActivity
 import com.example.moneypal.ui.theme.MoneyPalTheme
 import com.example.moneypal.viewmodels.UserAccountViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.request.ImageRequest
 import com.example.moneypal.MainActivity
 import com.example.moneypal.WelcomeUserActivity
-import com.example.moneypal.models.Status
 import com.example.moneypal.utils.WelcomeTitle
 import com.example.moneypal.utils.convertUriToBitmap
 import com.example.moneypal.utils.findActivity
-import kotlinx.coroutines.awaitCancellation
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.lang.RuntimeException
 

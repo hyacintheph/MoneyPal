@@ -1,6 +1,5 @@
 package com.example.moneypal.ui.account
 
-import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
 import android.widget.Toast
@@ -29,10 +28,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.moneypal.LoginActivity
-import com.example.moneypal.MainActivity
 import com.example.moneypal.R
 import com.example.moneypal.UserAccountActivity
-import com.example.moneypal.models.Status
 import com.example.moneypal.ui.theme.MoneyPalTheme
 import com.example.moneypal.utils.*
 import com.example.moneypal.viewmodels.UserAccountViewModel

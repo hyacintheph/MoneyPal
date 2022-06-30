@@ -25,7 +25,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.moneypal.ui.theme.MoneyPalTheme
@@ -35,16 +34,10 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.moneypal.*
 import com.example.moneypal.R
-import com.example.moneypal.models.Status
-import com.example.moneypal.utils.NavRoutes
-import com.example.moneypal.utils.SingleRouteNavigation
 import com.example.moneypal.utils.findActivity
 import kotlinx.coroutines.awaitCancellation
-import kotlinx.coroutines.delay
 
 @Composable
 fun CodeVerification(
